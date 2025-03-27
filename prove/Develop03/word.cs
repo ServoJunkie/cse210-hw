@@ -1,12 +1,24 @@
 public class Word
 {
-    private string _word = "error";
+    private string _word;
 
     private bool _hidden = false;
 
+
+    public Word()
+    {
+        _word = "error";
+    }
+    
+    public Word(string text)
+    {
+        _word = text;
+    }
+    
+    
     public void Display()
     {
-        if (_hidden == false)
+        if (!_hidden)
         {
             Console.Write($"{_word}");
         }
@@ -16,18 +28,14 @@ public class Word
         }
     }
 
-    public void HideWord()
+    public bool HideWord()
     {
         _hidden = true;
+        return false;
     }
 
     public bool IsHidden()
     {
         return _hidden;
-    }
-
-    public void StoreWord(string newWord)
-    {
-        _word = newWord;
     }
 }
