@@ -43,7 +43,7 @@ public class ListingActivity : Activity
         Console.Write("1");
         Thread.Sleep(1000);
         Console.Write("\b \b");
-        Console.WriteLine("Start!");
+        Console.WriteLine("Begin!");
 
         DateTime startTime = DateTime.Now;
         DateTime finishedTime = startTime.AddSeconds(time);
@@ -56,6 +56,7 @@ public class ListingActivity : Activity
             DateTime currentTime = DateTime.Now;
             if (currentTime >= finishedTime)
             {
+                Console.WriteLine();
                 Console.WriteLine($"You listed {amountOfAnswers} items!");
                 paused = false;
             }

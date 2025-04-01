@@ -5,6 +5,11 @@ class Program
 {
     static void Main(string[] args)
     {
+        int amountOfBreathingActivitiesCompleted = 0;
+        int amountOfReflectingActivitiesCompleted = 0;
+        int amountOfListingActivitiesCompleted = 0;
+        int totalAmountOfActivitiesCompleted = 0;
+
         bool finished = false;
         
         while (finished == false)
@@ -29,7 +34,12 @@ class Program
                 currentBreathingActivity.SetTime(timeChosen);
                 Console.Clear();
                 currentBreathingActivity.DisplayBreathingCountdown();
+                Console.WriteLine();
                 Console.WriteLine(currentBreathingActivity.GetEndingMessage());
+                Thread.Sleep(1500);
+
+                amountOfBreathingActivitiesCompleted ++;
+                totalAmountOfActivitiesCompleted ++;
             }
             else if (userChoice == "2")
             {
@@ -45,8 +55,14 @@ class Program
                 Console.WriteLine();
                 Console.WriteLine($" --- {currentReflectionActivity.GetPrompt()} --- ");
                 Console.WriteLine();
+                currentReflectionActivity.DisplayCountdown();
                 currentReflectionActivity.DisplayQuestions();
+                Console.WriteLine();
                 Console.WriteLine(currentReflectionActivity.GetEndingMessage());
+                Thread.Sleep(1500);
+
+                amountOfReflectingActivitiesCompleted ++;
+                totalAmountOfActivitiesCompleted ++;
             }
             else if (userChoice == "3")
             {
@@ -61,6 +77,10 @@ class Program
                 currentListingActivity.Countdown();
                 Console.WriteLine();
                 Console.WriteLine(currentListingActivity.GetEndingMessage());
+                Thread.Sleep(1500);
+
+                amountOfListingActivitiesCompleted ++;
+                totalAmountOfActivitiesCompleted ++;
             }
             else if (userChoice == "4")
             {
@@ -71,5 +91,12 @@ class Program
                 Console.WriteLine("Invalid choice. Please try again.");
             }
         }
+
+        Console.Clear();
+        Console.WriteLine("Nice job! You completed:");
+        Console.WriteLine($"- {amountOfBreathingActivitiesCompleted} breathing activites");
+        Console.WriteLine($"- {amountOfReflectingActivitiesCompleted} reflecting activites");
+        Console.WriteLine($"- {amountOfListingActivitiesCompleted} listing activites");
+        Console.WriteLine($"- {totalAmountOfActivitiesCompleted} total activites");
     }
 }
