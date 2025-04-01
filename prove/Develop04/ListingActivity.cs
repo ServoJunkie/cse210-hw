@@ -24,9 +24,11 @@ public class ListingActivity : Activity
         int time = GetTime();
         
         Console.WriteLine("List as many responses as you can to the following prompt:");
+        Console.WriteLine();
         string currentPrompt = GetPrompt();
         Console.WriteLine($" --- {currentPrompt} ---");
-        Console.WriteLine("You may begin in:  ");
+        Console.WriteLine();
+        Console.Write("You may begin in:  ");
         
         Console.Write("\b \b");
         Console.Write("4");
@@ -41,7 +43,7 @@ public class ListingActivity : Activity
         Console.Write("1");
         Thread.Sleep(1000);
         Console.Write("\b \b");
-        Console.WriteLine();
+        Console.WriteLine("Start!");
 
         DateTime startTime = DateTime.Now;
         DateTime finishedTime = startTime.AddSeconds(time);

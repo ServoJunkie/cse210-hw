@@ -58,7 +58,6 @@ class Program
                 int timeChosen = int.Parse(Console.ReadLine());
                 currentListingActivity.SetTime(timeChosen);
                 Console.Clear();
-                Console.WriteLine(currentListingActivity.GetPrompt());
                 currentListingActivity.Countdown();
                 Console.WriteLine();
                 Console.WriteLine(currentListingActivity.GetEndingMessage());
