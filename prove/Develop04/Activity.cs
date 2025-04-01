@@ -56,6 +56,6 @@ public class Activity
         Console.WriteLine();
         Console.WriteLine(_activityDescription);
         Console.WriteLine();
-        Console.WriteLine("How long would you like for your session? ");
+        Console.Write("How long would you like for your session? ");
     }
 }

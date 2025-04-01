@@ -26,8 +26,9 @@ public class ListingActivity : Activity
         Console.WriteLine("List as many responses as you can to the following prompt:");
         string currentPrompt = GetPrompt();
         Console.WriteLine($" --- {currentPrompt} ---");
-        Console.WriteLine("You may begin in: ");
+        Console.WriteLine("You may begin in:  ");
         
+        Console.Write("\b \b");
         Console.Write("4");
         Thread.Sleep(1000);
         Console.Write("\b \b");
