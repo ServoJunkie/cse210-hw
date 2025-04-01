@@ -57,6 +57,7 @@ public class ReflectionActivity : Activity
             Console.Write($"{currentQuestion}" );
 
             DisplaySpinner();
+            Console.WriteLine();
 
             DateTime currentTime = DateTime.Now;
             if (currentTime >= finishedTime)

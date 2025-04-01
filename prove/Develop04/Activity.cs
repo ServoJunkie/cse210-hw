@@ -52,7 +52,8 @@ public class Activity
 
     public void DisplayIntro()
     {
-        Console.WriteLine($"Welcome to the {_typeOfActivity} Activity");
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_typeOfActivity} Activity.");
         Console.WriteLine();
         Console.WriteLine(_activityDescription);
         Console.WriteLine();
