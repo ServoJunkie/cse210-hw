@@ -6,25 +6,21 @@ class Program
     {
         List<Shape> _shapes = new List<Shape>();
         
-        Square square01 = new Square(2, "Red");
-        Console.WriteLine(square01.GetColor());
-        Console.WriteLine(square01.GetArea());
+        Square square01 = new Square(3, "Red");
         _shapes.Add(square01);
 
-        Rectangle rectangle02 = new Rectangle(2, 4, "Blue");
-        Console.WriteLine(rectangle02.GetColor());
-        Console.WriteLine(rectangle02.GetArea());
+        Rectangle rectangle02 = new Rectangle(4, 5, "Blue");
         _shapes.Add(rectangle02);
 
-        Circle circle03 = new Circle(2, "Green");
-        Console.WriteLine(circle03.GetColor());
-        Console.WriteLine(circle03.GetArea());
+        Circle circle03 = new Circle(6, "Green");
         _shapes.Add(circle03);
 
         foreach (Shape currentShape in _shapes)
         {
-            Console.WriteLine(currentShape.GetColor());
-            Console.WriteLine(currentShape.GetArea());
+            string Color = currentShape.GetColor();
+            double Area = currentShape.GetArea();
+
+            Console.WriteLine($"The {Color} shape has an area of {Area}.");
         }
     }
 }
