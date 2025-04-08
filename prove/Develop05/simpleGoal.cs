@@ -17,7 +17,7 @@ public class SimpleGoal : Goal
         _completed = true;
     }
 
-    public override string GetType()
+    public override string GetGoalType()
     {
         return "Simple";
     }

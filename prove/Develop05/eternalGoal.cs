@@ -15,7 +15,7 @@ public class EternalGoal : Goal
         Console.WriteLine("Error. Cannot set eternal goal to complete.");
     }
 
-    public override string GetType()
+    public override string GetGoalType()
     {
         return "Eternal";
     }

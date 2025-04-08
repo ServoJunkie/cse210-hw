@@ -114,7 +114,7 @@ class Program
                 {
                     foreach (Goal currentGoal in _goals)
                     { 
-                        string type = currentGoal.GetType();
+                        string type = currentGoal.GetGoalType();
                         
                         if (type == "Checklist")
                         {

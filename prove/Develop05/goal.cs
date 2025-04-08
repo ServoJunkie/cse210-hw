@@ -33,7 +33,7 @@ public abstract class Goal
         return _points;
     }
 
-    public abstract string GetType();
+    public abstract string GetGoalType();
     public abstract void Display();
     public abstract bool IsCompleted();
     public abstract void SetCompleted();
