@@ -180,6 +180,7 @@ class Program
             }
         }
 
+        Console.Clear();
         Console.WriteLine("Thanks for using the goal program!");
         Console.WriteLine("You completed:");
         Console.WriteLine($"  {simpleGoalsFinished} simple goals");
