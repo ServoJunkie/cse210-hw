@@ -3,7 +3,6 @@ public class ChecklistGoal : Goal
     private int _amountCompleted;
     private int _totalToComplete;
     private int _bonus;
-    private int _finishPoint;
 
     public ChecklistGoal(string Name, string Description, int Points, int TotalToComplete, int Bonus) : base(Name, Description, Points)
     {
@@ -33,7 +32,7 @@ public class ChecklistGoal : Goal
         return _amountCompleted;
     }
     
-    public override string GetType()
+    public override string GetGoalType()
     {
         return "Checklist";
     }
