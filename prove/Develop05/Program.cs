@@ -8,11 +8,15 @@ class Program
     {
         List<Goal> _goals = new List<Goal>();
 
+        int pointTotal = 0;
         bool finished = false;
 
         while (finished == false)
         {
             Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine($"You have {pointTotal} points.");
+            Console.WriteLine();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("  1. Create New Goal");
             Console.WriteLine("  2. List Goals");
@@ -100,9 +104,29 @@ class Program
                 {
                     string[] parts = line.Split(",");
 
-                    string name = parts[0];
-                    string description = parts[1];
-                    string points = parts[2];
+                    string type = parts[0];
+                    string name = parts[1];
+                    string description = parts[2];
+                    int points = int.Parse(parts[3]);
+
+                    if (type == "Checklist")
+                    {
+                        int totalToComplete = int.Parse(parts[4]);
+                        int bonus = int.Parse(parts[5]);
+
+                        ChecklistGoal currentChecklistGoal = new ChecklistGoal(name, description, points, totalToComplete, bonus);
+                        _goals.Add(currentChecklistGoal);
+                    }
+                    else if (type == "Eternal")
+                    {
+                        EternalGoal currentEternalGoal = new EternalGoal(name, description, points);
+                        _goals.Add(currentEternalGoal);
+                    }
+                    else if (type == "Simple")
+                    {
+                        SimpleGoal currentSimpleGoal = new SimpleGoal(name, description, points);
+                        _goals.Add(currentSimpleGoal);
+                    }
                 }
             }
             else if (userChoice == "4")
@@ -114,18 +138,18 @@ class Program
                 {
                     foreach (Goal currentGoal in _goals)
                     { 
-                        string type = currentGoal.GetGoalType();
-                        
-                        if (type == "Checklist")
-                        {
-                            outputFile.WriteLine(currentGoal.Serialize());
-                        }
+                        outputFile.WriteLine(currentGoal.Serialize());
                     }
                 }
             }
             else if (userChoice == "5")
             {
+                Console.Write("Which goal did you accomplish? ");
+                int goalNumber = int.Parse(Console.ReadLine());
 
+                _goals[goalNumber].SetCompleted();
+                int newPoints = _goals[goalNumber].GetPoints();
+                pointTotal = pointTotal + newPoints;
             }
             else if (userChoice == "6")
             {
