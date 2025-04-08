@@ -8,6 +8,11 @@ class Program
     {
         List<Goal> _goals = new List<Goal>();
 
+        int goalsFinished = 0;
+        int simpleGoalsFinished = 0;
+        int eternalGoalsFinished = 0;
+        int checklistGoalsFinished = 0;
+
         int pointTotal = 0;
         bool finished = false;
 
@@ -150,6 +155,20 @@ class Program
                 _goals[goalNumber].SetCompleted();
                 int newPoints = _goals[goalNumber].GetPoints();
                 pointTotal = pointTotal + newPoints;
+
+                goalsFinished ++;
+                if (_goals[goalNumber].GetGoalType() == "Simple")
+                {
+                    simpleGoalsFinished ++;
+                }
+                else if (_goals[goalNumber].GetGoalType() == "Eternal")
+                {
+                    eternalGoalsFinished ++;
+                }
+                else if (_goals[goalNumber].GetGoalType() == "Checklist")
+                {
+                    checklistGoalsFinished ++;
+                }
             }
             else if (userChoice == "6")
             {
@@ -160,5 +179,12 @@ class Program
                 Console.WriteLine("Invalid entry. Please try again.");
             }
         }
+
+        Console.WriteLine("Thanks for using the goal program!");
+        Console.WriteLine("You completed:");
+        Console.WriteLine($"  {simpleGoalsFinished} simple goals");
+        Console.WriteLine($"  {eternalGoalsFinished} eternal goals");
+        Console.WriteLine($"  and {checklistGoalsFinished} checklist goals");
+        Console.WriteLine($"for a total of {goalsFinished} goals finished.");
     }
 }
